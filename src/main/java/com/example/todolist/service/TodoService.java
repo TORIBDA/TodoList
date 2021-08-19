@@ -34,4 +34,10 @@ public class TodoService {
     private Todo findTodoById(Integer id) {
         return todoRepository.findById(id).orElse(null);
     }
+
+    public Todo deleteTodo(Integer id) {
+        Todo todoToDelete = findTodoById(id);
+        todoRepository.deleteById(id);
+        return todoToDelete;
+    }
 }
